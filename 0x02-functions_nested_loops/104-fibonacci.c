@@ -1,29 +1,31 @@
 #include <stdio.h>
 
-void print_fibonacci(void);
-
+/**
+ * main - Calculate and print the first 98 Fibonacci numbers
+ *
+ * This function calculates and prints the first 98 Fibonacci numbers,
+ * starting with 1 and 2, separated by commas.
+ *
+ * Return: Always Success (0).
+ */
 int main(void)
 {
-    print_fibonacci();
-    return (0);
-}
+	int n = 98;
+	unsigned long a = 1, b = 2;
 
-void print_fibonacci(void)
-{
-    int n1 = 1, n2 = 2;
-    int count = 2;
+	printf("%lu, %lu", a, b);
 
-    printf("%d, %d", n1, n2);
+	for (int i = 2; i < n; i++)
+	{
+		unsigned long next = a + b;
 
-    while (count < 98)
-    {
-        int next = n1 + n2;
-        printf(", %d", next);
+		printf(", %lu", next);
 
-        n1 = n2;
-        n2 = next;
-        count++;
-    }
+		a = b;
+		b = next;
 
-    printf("\n");
+	}
+
+	printf("\n");
+	return (0);
 }
