@@ -1,28 +1,28 @@
 #include <stdio.h>
-#define LARGEST 10000000000
+#define LIMIT 10000000000
 /**
- * main - main block
+ * main - Fibanicca
  * Description: Find and print the first 98 fib numbers starting with 1 and 2.
  * Numbers should be coma and space separated.
  * Return: 0
  */
 int main(void)
 {
-	unsigned long int fr1 = 0, bk1 = 1, fr2 = 0, bk2 = 2;
+	unsigned long int num1 = 0, bk1 = 1, num2 = 0, bk2 = 2;
 	unsigned long int hold1, hold2, hold3;
 	int count;
 
 	printf("%lu, %lu, ", bk1, bk2);
 	for (count = 2; count < 98; count++)
 	{
-		if (bk1 + bk2 > LARGEST || fr2 > 0 || fr1 > 0)
+		if (bk1 + bk2 > LIMIT || num2 > 0 || num1 > 0)
 		{
-			hold1 = (bk1 + bk2) / LARGEST;
-			hold2 = (bk1 + bk2) % LARGEST;
-			hold3 = fr1 + fr2 + hold1;
-			fr1 = fr2, fr2 = hold3;
+			hold1 = (bk1 + bk2) / LIMIT;
+			hold2 = (bk1 + bk2) % LIMIT;
+			hold3 = num1 + num2 + hold1;
+			num1 = num2, num2 = hold3;
 			bk1 = bk2, bk2 = hold2;
-			printf("%lu%010lu", fr2, bk2);
+			printf("%lu%010lu", num2, bk2);
 		}
 		else
 		{
@@ -35,4 +35,5 @@ int main(void)
 	}
 	printf("\n");
 	return (0);
+
 }
