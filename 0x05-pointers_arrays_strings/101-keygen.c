@@ -1,34 +1,36 @@
 #include <stdio.h>
-#include <time.h>
 #include <stdlib.h>
-
-/**
- * main - generates random valid passwords
- *
- * Return: the generated password
- */
+#include <time.h>
 
 int main(void)
 {
-/* random number generator with the current time. */
-srand(time(0));
+    srand(time(0));
+    char password[16]; 
+    int r;
 
-/*  character array to store the generated password. */
-char password[16];
+    for (int i = 0; i < 15; i++)
+    {
+        r = rand() % 62;
 
-for (int i = 0; i < 15; i++) {
-    password[i] = (char) (rand() % 26 + 'a');
-}
+        if (r >= 0 && r <= 25)
+        {
+            password[i] = 'A' + r;
+        }
+        else if (r >= 26 && r <= 51)
+        {
+            password[i] = 'a' + (r - 26);
+        }
+        else
+        {
+            password[i] = '0' + (r - 52);
+        }
 
-/* Terminate the password string with a null terminator. */
-password[15] = '\0';
+        putchar(password[i]);
+    }
 
-/* Print the generated password to the console using putchar. */
-for (int j = 0; password[j] != '\0'; j++) {
-putchar(password[j]);
-}
+    password[15] = '\0';
 
-putchar('\n');
+    putchar('\n');
 
-return (0);
+    return (0);
 }
