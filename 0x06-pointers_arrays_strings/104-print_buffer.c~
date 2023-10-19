@@ -1,0 +1,94 @@
+#include "main.h"
+
+/**
+ * print_buffer - Prints a buffer.
+ * @b: The buffer to print.
+ * @size: The number of bytes to print.
+ */
+void print_buffer(char *b, int size)
+{
+	int i, j;
+
+	if (size <= 0)
+	{
+		_putchar('\n');
+		return;
+	}
+
+	for (i = 0; i < size; i += 10)
+	{
+		print_buffer_line(i, b, size);
+	}
+}
+
+/**
+ * print_buffer_line - Prints a single line of the buffer.
+ * @start: The starting position of the line.
+ * @buffer: The buffer to print.
+ * @size: The total size of the buffer.
+ */
+void print_buffer_line(int start, char *buffer, int size)
+{
+	int j;
+
+	print_hex(start);
+
+	for (j = 0; j < 10; j++)
+	{
+		if (start + j < size)
+		{
+			print_hex((unsigned char)buffer[start + j]);
+		}
+		else
+		{
+			_putchar(' ');
+			_putchar(' ');
+		}
+		if (j % 2 == 1)
+			_putchar(' ');
+	}
+
+	_putchar(' ');
+
+	for (j = 0; j < 10; j++)
+	{
+		if (start + j < size)
+		{
+			print_buffer_char(buffer[start + j]);
+		}
+		else
+		{
+			_putchar(' ');
+		}
+	}
+
+	_putchar('\n');
+}
+
+/**
+ * print_buffer_char - Prints a character from the buffer.
+ * @c: The character to print.
+ */
+void print_buffer_char(char c)
+{
+	if (c >= 32 && c <= 126)
+	{
+		_putchar(c);
+	}
+	else
+	{
+		_putchar('.');
+	}
+}
+
+/**
+ * print_hex - Prints a hexadecimal value.
+ * @n: The value to print in hexadecimal.
+ */
+void print_hex(int n)
+{
+	char hex_digits[] = "0123456789ABCDEF";
+
+	_putchar(hex_digits[(n >> 4) & 0xF]);
+	_putchar(hex_digits[n & 0xF]);
+}
