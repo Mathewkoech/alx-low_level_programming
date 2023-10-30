@@ -7,7 +7,6 @@
  *@width:width of array
  *Return:pointer to the array
  */
-
 int **alloc_grid(int width, int height)
 {
 	int **grid;
@@ -47,6 +46,7 @@ int **alloc_grid(int width, int height)
 			grid[i][j] = 0;
 		}
 	}
-
 	return (grid);
+
+return (NULL);
 }
