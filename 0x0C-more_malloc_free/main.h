@@ -11,4 +11,6 @@ int _strlen(char *str);
 int main(int argc, char *argv[]);
 void errors(void);
 int _putchar(char c);
+void print_result(int *result, int len);
+int *perform_multiplication(char *s1, char *s2, int len, int len1, int len2);
 #endif
