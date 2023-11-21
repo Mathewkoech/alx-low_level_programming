@@ -1,7 +1,7 @@
 #include "lists.h"
 /**
-0;276;0c *insert_nodeint_at_index-inserts new node at given position
- *@idx:Index where the new node should be added
+*insert_nodeint_at_index-inserts new node at given position
+ *@index:Index where the new node should be added
  *@n:value of new node
  *@head:pointer to head of the list
  *Return: Address of the new node, or NULL if it failed.
