@@ -18,23 +18,24 @@ size_t print_listint_safe(const listint_t *head)
 {
 	const listint_t *current = head, *runner = head;
 	size_t size = 0;
+	int count = 0;
 
 	while (current && runner && runner->next)
 	{
 		current = current->next;
 		runner = runner->next->next;
+
 		if (current == runner)
 		{
 			current = current->next;
-			size = 1;
+			count = 1;
 			break;
 		}
 	}
-
 	while (head)
 	{
 		size++;
-		if (size && head == current)
+		if (count && head == current)
 		{
 			print_node(head);
 			printf("-> [%p] %d\n", (void *)head->next, head->next->n);
