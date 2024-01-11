@@ -1,3 +1,9 @@
+#include "lists.h"
+/**
+ **insert_dnodeint_at_index- adds new node in a list at specified index
+ *
+ */
+
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *temp = *h, *new;
