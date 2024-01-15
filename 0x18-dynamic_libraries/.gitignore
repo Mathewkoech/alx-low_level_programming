@@ -1,3 +1,5 @@
 *~
 *.c
 *.o
+ operations.c
+ 100-tests.py
